@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Tree</title>
+</head>
+
+<body>
+
+    <div id="menu"></div>
+    
+    <script>
+        let treeData = [{
+            label: '一级 1',
+            children: [{
+                label: '二级 1-1',
+                children: [{
+                    label: '三级 1-1-1'
+                }]
+            }]
+        }, {
+            label: '一级 2',
+            children: [{
+                label: '二级 2-1',
+                children: [{
+                    label: '三级 2-1-1'
+                }]
+            }, {
+                label: '二级 2-2',
+                children: [{
+                    label: '三级 2-2-1'
+                }]
+            }]
+        }, {
+            label: '一级 3',
+            children: [{
+                label: '二级 3-1',
+                children: [{
+                    label: '三级 3-1-1'
+                }]
+            }, {
+                label: '二级 3-2',
+                children: [{
+                    label: '三级 3-2-1'
+                }]
+            }]
+        }];
+
+        let menu = ''
+        function PreOrderTree(data) {
+            for (let i = 0; i < data.length; i++) {
+                console.log(data[i].label);
+                menu += '<ul><li>' + data[i].label;
+                if (data[i].children) {
+                    PreOrderTree(data[i].children);
+                }
+                menu += '</li></ul>'
+            }
+            return menu;
+        }
+
+        let tree = PreOrderTree(treeData);
+        console.log(tree);
+        document.getElementById('menu').innerHTML = tree;
+    </script>
+</body>
+
+</html>
