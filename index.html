@@ -32,6 +32,8 @@
                 label: '二级 2-2',
                 children: [{
                     label: '三级 2-2-1'
+                },{
+                    label: '三级 2-2-2'
                 }]
             }]
         }, {
@@ -50,19 +52,19 @@
         }];
 
         let menu = ''
-        function PreOrderTree(data) {
+        function Tree(data) {
             for (let i = 0; i < data.length; i++) {
                 console.log(data[i].label);
                 menu += '<ul><li>' + data[i].label;
                 if (data[i].children) {
-                    PreOrderTree(data[i].children);
+                    Tree(data[i].children);
                 }
                 menu += '</li></ul>'
             }
             return menu;
         }
 
-        let tree = PreOrderTree(treeData);
+        let tree = Tree(treeData);
         console.log(tree);
         document.getElementById('menu').innerHTML = tree;
     </script>

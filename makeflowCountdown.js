@@ -1,0 +1,50 @@
+ // [makeflow: countdown]
+// 类型: 校招
+// 时长: 15 分钟
+// 姓名:
+// 日期:
+
+// 实现下面的 countdown 函数, 用于计算起止时间的间隔信息.
+
+// 提示:
+// 运行代码快捷键: Ctrl + S 
+
+function countdown(from, to) {
+    // ...
+      let mid=to-from;
+      let days=Math.floor(mid/1000/60/60/24);
+      let hours=Math.floor((mid%(24*3600*1000) )/1000/60/60);
+      let minutes=Math.floor((mid%(3600*1000) )/1000/60);
+      let seconds=Math.floor((mid%(60*1000) )/1000);
+      let milliseconds=Math.floor(mid%(1000) );
+      
+      
+    return {
+      days: days,
+      hours: hours,
+      minutes: minutes,
+      seconds: seconds,
+      milliseconds: milliseconds,
+ 
+    };
+  }
+  
+  // 参考用例:
+  
+  const from = Date.now();
+  const to = from + 3 * 3600 * 1000 + 6 * 60 * 1000 + 9 * 1000 + 0;
+  const info = countdown(from, to);
+  
+  console.log('输出结果:');
+  console.log(info);
+  
+  // 输出结果参考
+  
+  // 输出结果:
+  // {
+  //   days: 0,
+  //   hours: 3,
+  //   minutes: 6,
+  //   seconds: 9,
+  //   milliseconds: 0,
+  // }
